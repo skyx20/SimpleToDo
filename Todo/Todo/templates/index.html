@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+
+    <div>
+        <div>
+            <a
+                name=""
+                id=""
+                class="btn btn-primary"
+                href="{% url 'add' %}"
+                role="button"
+                >Add new task</a
+            >
+            
+        </div>
+        {% if tasks %}
+        <div>
+            <ul>
+            {% for task in tasks %}
+                <li>
+                    {{task.title}}
+                    {{task.description}}
+                </li>
+                <a href="{% url 'edit' task_id=task.id%}">Edit</a>
+                <a href="{% url 'delete' task_id=task.id%}">Delete</a>
+                {% endfor %}
+            </ul>
+        <div>
+        {% else %}
+        <div>
+            <h3>You don't have any task yet</h3>
+        </div>
+        {% endif %}
+    </div>
+
+{% endblock %}
