@@ -1,0 +1,5 @@
+Todo/Todo/__pycache__/
+Todo/Todo/migrations/
+venv-t/
+.mypy_cache
+*sqlite3
