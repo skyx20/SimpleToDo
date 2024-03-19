@@ -58,7 +58,9 @@ def delete(request, task_id):
 def remove(request, task_id):
     task = Task.objects.get(pk=task_id)
     if task:
-        task.is_done = True
+        if task.is_done:
+            task.is_done = False
+        else:
+            task.is_done = True
         task.save()
-
     return redirect("index")

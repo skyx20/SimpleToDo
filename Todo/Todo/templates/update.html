@@ -7,9 +7,16 @@
         <form action="{% url 'update' task_id=form.instance.id %}" method="post">
             {%csrf_token%}
             <br>
-            <div>
-                {{form}}
-            </div>
+            {% for field in form %}
+                <div>
+                    {% if "done" not in field.label_tag  %}
+                        {{ field.label_tag }}
+                        {{ field.errors }}
+                        {{ field }}
+                        {{ field.help_text }}
+                    {% endif %}
+                </div>
+            {% endfor %}
             <br>
             <button class="btn btn-primary">submit</button>
         </form>
