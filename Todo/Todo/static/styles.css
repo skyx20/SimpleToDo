@@ -43,4 +43,7 @@ textarea{
     font-weight: 400;
 }
 
+.options-bar .success{
+    color: green;
+}
 

@@ -29,7 +29,12 @@
                             <div class="options-bar" >
                                 <a href="{% url 'update' task_id=task.id %}">Edit</a>
                                 <a href="{% url 'delete' task_id=task.id %}">Delete</a>
+                                {% if task.is_done %}
+                                <a class="success" href="{% url 'remove' task_id=task.id %}">Done</a>
+                                {% else %}
                                 <a href="{% url 'remove' task_id=task.id %}">Done</a>
+                                {% endif %}
+
                                 
                             </div>
                         </div>
