@@ -4,7 +4,7 @@ This a simple ToDo app built with Django
 
 ## Instructions to run it:
 
-Create a virtual enviroment
+Create a virtual enviroment and activate it
 
 install django with "pip install Django"
 
