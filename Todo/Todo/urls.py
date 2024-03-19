@@ -17,14 +17,13 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from .models import Task
 from . import views
 
 urlpatterns = [
     path("", views.index, name="index"),
-    path("/add/", views.add, name="add"),
-    path("/edit/<int:task_id>", views.edit, name="edit"),
-    path("/remove/<int:task_id>", views.remove, name="remove"),
-    path("/delete/<int:task_id>", views.delete, name="delete"),
+    path("add/", views.add, name="add"),
+    path("update/<int:task_id>", views.update, name="update"),
+    path("remove/<int:task_id>", views.remove, name="remove"),
+    path("delete/<int:task_id>", views.delete, name="delete"),
     path("admin/", admin.site.urls),
 ]

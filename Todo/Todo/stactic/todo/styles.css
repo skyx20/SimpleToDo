@@ -1,0 +1,11 @@
+textarea{
+    resize: none;
+}
+
+.navbar-brand{
+    margin-left: 15px;
+}
+
+.wrapper{
+    margin-top: 20px;
+}
