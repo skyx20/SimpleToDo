@@ -8,6 +8,8 @@ Create a virtual enviroment and activate it
 
 install django with "pip install Django"
 
+run the migrations with "python Todo/manage.py makemigrations" then "python Todo/manage.py migrate"
+
 run the server with "python Todo/manage.py runserver"
 
 
