@@ -12,7 +12,6 @@ def index(request):
 
 def add(request):
     if request.method == "POST":
-        print(request.POST)
         form = TaskForm(request.POST)
         if form.is_valid():
             form.save()
@@ -36,7 +35,7 @@ def update(request, task_id):
             else:
                 return render(request, "update.html", {"form": form})
         else:
-            print(TaskForm(instance=task))
+            # print(TaskForm(instance=task))
             return render(
                 request,
                 "update.html",
@@ -49,15 +48,18 @@ def delete(request, task_id):
     try:
         task = Task.objects.get(pk=task_id)
     except Task.DoesNotExist:
-        print("Something went wrong")
+        print("LOG: Data doens't Exist")
     else:
         task.delete()
     return redirect("index")
 
 
 def remove(request, task_id):
-    task = Task.objects.get(pk=task_id)
-    if task:
+    try:
+        task = Task.objects.get(pk=task_id)
+    except ObjectDoesNotExist:
+        print("LOG: Data doens't Exist ")
+    else:
         if task.is_done:
             task.is_done = False
         else:
